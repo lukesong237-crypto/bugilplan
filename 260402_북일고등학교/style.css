@@ -1,0 +1,266 @@
+:root {
+    --primary-color: #03C75A; /* Naver Green */
+    --primary-hover: #02b350;
+    --bg-color: #f4f6f8;
+    --card-bg: #ffffff;
+    --card-border: #e3e7ed;
+    --text-color: #202020;
+    --text-muted: #666666;
+    --text-light: #999999;
+    --shadow: 0 2px 10px rgba(0,0,0,0.05);
+    --transition: all 0.2s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Malgun Gothic", "맑은 고딕", helvetica, sans-serif;
+    color: var(--text-color);
+    background: var(--bg-color);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.background-overlay {
+    display: none;
+}
+
+.container {
+    width: 100%;
+    max-width: 1100px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 3rem 1.5rem;
+}
+
+/* Header & Clock */
+.header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.greeting {
+    font-size: 1rem;
+    color: var(--primary-color);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.clock {
+    font-size: 4rem;
+    font-weight: 800;
+    letter-spacing: -2px;
+    color: #000;
+}
+
+.date {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+}
+
+/* Search Section - Naver Style Bar */
+.search-section {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto 3rem;
+}
+
+.search-form {
+    position: relative;
+    display: flex;
+    align-items: center;
+    border: 2px solid var(--primary-color);
+    border-radius: 4px;
+    background: #fff;
+    padding: 2px;
+}
+
+.search-input {
+    width: 100%;
+    padding: 0.9rem 1.2rem;
+    border: none;
+    background: transparent;
+    font-size: 1.2rem;
+    font-weight: 500;
+    outline: none;
+    color: #000;
+}
+
+.search-btn {
+    padding: 0 1.2rem;
+    height: 50px;
+    background: var(--primary-color);
+    border: none;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-btn:hover {
+    background: var(--primary-hover);
+}
+
+/* Widgets Grid */
+.widgets-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    width: 100%;
+}
+
+.widget-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    height: 330px; /* 고정 높이 */
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* 영역 밖으로 나가는 것 방지 */
+}
+
+.widget-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.widget-card h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #000;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.widget-card h3 i {
+    color: var(--primary-color);
+}
+
+.refresh-btn-mini {
+    background: #f8f9fa;
+    border: 1px solid #eee;
+    color: var(--text-light);
+    width: 28px;
+    height: 28px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.refresh-btn-mini:hover {
+    background: #eee;
+    color: var(--text-color);
+}
+
+/* Weather 구역 */
+#weather-content {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 뉴스 구역 - 스크롤 적용 */
+#news-content {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+.news-item {
+    padding: 0.6rem 0;
+    border-bottom: 1px solid #f9f9f9;
+}
+
+.news-item a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 0.95rem;
+    display: block;
+    white-space: nowrap;        /* 한 줄 고정 */
+    overflow: hidden;           /* 넘치는 부분 숨김 */
+    text-overflow: ellipsis;    /* ... 처리 */
+}
+
+.news-item a:hover {
+    text-decoration: underline;
+    color: var(--primary-color);
+}
+
+/* Quick Links */
+.quick-links {
+    margin-top: auto;
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    padding: 2rem 0;
+}
+
+.link-item {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    text-decoration: none;
+    color: var(--text-muted);
+}
+
+.link-item .icon {
+    width: 40px;
+    height: 40px;
+    background: #fff;
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+}
+
+.link-item:hover .icon {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+/* Animations */
+.spinning {
+    animation: spin 1s infinite linear;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.loading {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-light);
+}
+
+/* 스크롤바 스타일 */
+#news-content::-webkit-scrollbar {
+    width: 4px;
+}
+#news-content::-webkit-scrollbar-track {
+    background: transparent;
+}
+#news-content::-webkit-scrollbar-thumb {
+    background: #ddd;
+    border-radius: 10px;
+}
